@@ -4,6 +4,8 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
+        // 背景画像をロード
+        this.load.image('background', 'background.jpg');
         // プレイヤーや具材の画像をロード
         this.load.image('tacoShell', 'taco.png');
         this.load.image('meat', './meat.png');
@@ -14,6 +16,10 @@ class GameScene extends Phaser.Scene {
     }
 
     create() {
+
+        // 背景画像を追加 (位置を (0, 0) に設定し、シーン全体にフィットさせる)
+        this.add.image(400, 300, 'background').setDisplaySize(800, 600);
+
         // プレイヤーの作成
         this.player = this.physics.add.sprite(400, 550, 'tacoShell').setCollideWorldBounds(true);
         this.player.setScale(0.25); // 必要に応じてサイズ調整
